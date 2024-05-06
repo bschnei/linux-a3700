@@ -2,7 +2,7 @@
 
 buildarch=8
 
-pkgname=linux-ebu
+pkgname=linux-a3700
 pkgver=6.8.9
 pkgrel=1
 pkgdesc='Kernel and modules for Globalscale ESPRESSObin Ultra (Marvell Armada A3720 SoC)'

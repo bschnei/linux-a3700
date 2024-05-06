@@ -3,7 +3,7 @@ post_install() {
   # create systemd-boot entry
   if [ $(bootctl is-installed) = "yes" ]
   then
-    kernel-install add "${1}-ebu" "/usr/lib/modules/${1}-ebu/Image"
+    kernel-install add "${1}-a3700" "/usr/lib/modules/${1}-a3700/Image"
   fi
 
 }
@@ -13,8 +13,8 @@ post_upgrade() {
   # update systemd-boot entry
   if [ $(bootctl is-installed) = "yes" ]
   then
-    kernel-install remove "${2}-ebu"
-    kernel-install add "${1}-ebu" "/usr/lib/modules/${1}-ebu/Image"
+    kernel-install remove "${2}-a3700"
+    kernel-install add "${1}-a3700" "/usr/lib/modules/${1}-a3700/Image"
   fi
 
 }
@@ -24,7 +24,7 @@ post_remove() {
   # remove systemd-boot entry
   if [ $(bootctl is-installed) = "yes" ]
   then
-    kernel-install remove "${1}-ebu"
+    kernel-install remove "${1}-a3700"
   fi
 
 }
