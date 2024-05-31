@@ -3,8 +3,8 @@
 buildarch=8
 
 pkgname=linux-a3700
-pkgver=6.9.2
-pkgrel=2
+pkgver=6.9.3
+pkgrel=1
 pkgdesc='Kernel and modules for Globalscale ESPRESSObin Ultra (Marvell Armada A3720 SoC)'
 arch=(aarch64)
 url='https://www.kernel.org/'
@@ -27,9 +27,9 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('d46c5bdf2c5961cc2a4dedefe0434d456865e95e4a7cd9f93fff054f9090e5f9'
+sha256sums=('c321c46401368774fc236f57095b205a5da57415f9a6008018902f9fd5eddfae'
             'SKIP'
-            'b1cd910283e0e04b5c4f934a017f3efca25634ee6fae429870bca104230e2c89'
+            '6b9af8a07d145a6e5d95a41cc2c368452b76e284b5fd35beec50d8958aad6b6f'
             'a1514b9bf05a2b25a2737971f034feb2ec650e8c9b102afac0f3c47080267e46')
 prepare() {
   cd $_srcname
