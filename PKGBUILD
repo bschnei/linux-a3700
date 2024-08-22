@@ -3,7 +3,7 @@
 buildarch=8
 
 pkgname=linux-a3700
-pkgver=6.10.5
+pkgver=6.10.6
 pkgrel=1
 pkgdesc='Kernel and modules for Marvell Armada A3700 SoC'
 arch=(aarch64)
@@ -27,9 +27,9 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('30909eb2e0434dce97a93cd97ed0dfab7688a124bc3ebc3ecf6c776de09ccc0b'
+sha256sums=('e0d50d5b74f8599375660e79f187af7493864dba5ff6671b14983376a070b3d1'
             'SKIP'
-            'f43a448e5dcd3f8ec09e9f5b0427fbb3220149affa5b564942ca356b13bcbc2b'
+            'fb415034ff37fe53beab0f2abd4abcc8837b75a6004d1b19e6a1393ea3c501e4'
             'a1514b9bf05a2b25a2737971f034feb2ec650e8c9b102afac0f3c47080267e46')
 prepare() {
   cd $_srcname
@@ -83,7 +83,8 @@ package() {
   install -Dm644 arch/arm64/boot/Image -t "$modulesdir"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+    DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build link
   rm "$modulesdir"/build
