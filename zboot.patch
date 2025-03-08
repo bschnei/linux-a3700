@@ -1,0 +1,16 @@
+--- a/drivers/firmware/efi/libstub/randomalloc.c	2025-03-08 10:20:43.559691777 -0800
++++ b/drivers/firmware/efi/libstub/randomalloc.c	2025-03-08 10:21:36.087886261 -0800
+@@ -128,9 +128,11 @@
+ 
+ 		status = efi_bs_call(allocate_pages, EFI_ALLOCATE_ADDRESS,
+ 				     memory_type, pages, &target);
+-		if (status == EFI_SUCCESS)
++
++		if (status == EFI_SUCCESS) {
+ 			*addr = target;
+-		break;
++			break;
++		}
+ 	}
+ 
+ 	efi_bs_call(free_pool, map);
