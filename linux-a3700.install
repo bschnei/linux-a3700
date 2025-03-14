@@ -3,7 +3,7 @@ post_install() {
   # create systemd-boot entry
   if [ $(bootctl is-installed) = "yes" ]
   then
-    kernel-install add "${1}-a3700" "/usr/lib/modules/${1}-a3700/Image"
+    kernel-install add "${1}-a3700" -
   fi
 
 }
@@ -14,7 +14,7 @@ post_upgrade() {
   if [ $(bootctl is-installed) = "yes" ]
   then
     kernel-install remove "${2}-a3700"
-    kernel-install add "${1}-a3700" "/usr/lib/modules/${1}-a3700/Image"
+    kernel-install add "${1}-a3700" -
   fi
 
 }

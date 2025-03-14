@@ -1,0 +1,12 @@
+--- a/drivers/firmware/efi/libstub/randomalloc.c
++++ b/drivers/firmware/efi/libstub/randomalloc.c
+@@ -75,6 +75,9 @@
+	if (align < EFI_ALLOC_ALIGN)
+		align = EFI_ALLOC_ALIGN;
+
++	if (alloc_min == 0)
++		alloc_min = align;
++
+	size = round_up(size, EFI_ALLOC_ALIGN);
+
+	/* count the suitable slots in each memory map entry */
