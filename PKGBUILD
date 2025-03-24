@@ -1,7 +1,7 @@
 # Maintainer: Benjamin Schneider <ben@bens.haus>
 
 pkgname=linux-a3700
-pkgver=6.13.7
+pkgver=6.13.8
 pkgrel=1
 pkgdesc='Kernel and modules for Marvell Armada A3700 SoC'
 arch=(aarch64)
@@ -29,9 +29,9 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('3a39b62038b7ac2f43d26a1f84b4283e197804e1e817ad637e9a3d874c47801d'
+sha256sums=('259afa59d73d676bec2ae89beacd949e08d54d3f70a7f8b0a742315095751abb'
             'SKIP'
-            'ad9eafdc68576c6af68c27dbee9c8d976bd4b4e4812f74ae60d44eb703ab817d'
+            'ef1899e4092af176b14e2e5cda56039f73bf20c2b0de5db1e107bf3f10888cdc'
             'a1514b9bf05a2b25a2737971f034feb2ec650e8c9b102afac0f3c47080267e46'
             'd5610ebc755bcd2e23c625bc71c5212f6d8edabd36ae4c30c6e69ff9a6048b8d')
 prepare() {

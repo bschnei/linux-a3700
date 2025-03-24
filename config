@@ -1,8 +1,8 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 6.13.7 Kernel Configuration
+# Linux/arm64 6.13.8 Kernel Configuration
 #
-CONFIG_CC_VERSION_TEXT="aarch64-unknown-linux-gnu-gcc (GCC) 14.2.1 20250207"
+CONFIG_CC_VERSION_TEXT="gcc (GCC) 14.2.1 20250207"
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=140201
 CONFIG_CLANG_VERSION=0
