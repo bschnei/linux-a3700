@@ -1,7 +1,7 @@
 # Maintainer: Benjamin Schneider <ben@bens.haus>
 
 pkgname=linux-a3700
-pkgver=6.13.8
+pkgver=6.14.1
 pkgrel=1
 pkgdesc='Kernel and modules for Marvell Armada A3700 SoC'
 arch=(aarch64)
@@ -17,23 +17,33 @@ options=(
   !debug
   !strip
 )
-_srcname=linux-$pkgver
+# make -s kernelrelease produces a version number with a trailing .0
+# on new versions (e.g. 6.14 => 6.14.0) but the trailing .0 is not used
+# to name the source .tar.xz files.
+if [ ${pkgver: -2} = ".0" ]; then
+  _srcname=linux-${pkgver:0:-2}
+else
+  _srcname=linux-${pkgver}
+fi
 source=(
   https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.{xz,sign}
   config
   0001-cpufreq-armada-37xx.patch
-  0002-efi-libstub.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('259afa59d73d676bec2ae89beacd949e08d54d3f70a7f8b0a742315095751abb'
+sha256sums=('5bf122d1879fd64fadf0cecfcd477957ebce1bc5931c14835ee0eda88463e407'
             'SKIP'
-            'ef1899e4092af176b14e2e5cda56039f73bf20c2b0de5db1e107bf3f10888cdc'
-            'a1514b9bf05a2b25a2737971f034feb2ec650e8c9b102afac0f3c47080267e46'
-            'd5610ebc755bcd2e23c625bc71c5212f6d8edabd36ae4c30c6e69ff9a6048b8d')
+            'f0d3402828c5008ac42baa95fff262c3c1b559d96332c341e559f7c43c9d5680'
+            'a1514b9bf05a2b25a2737971f034feb2ec650e8c9b102afac0f3c47080267e46')
+
+export KBUILD_BUILD_HOST=archlinux
+export KBUILD_BUILD_USER=$pkgbase
+export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
+
 prepare() {
   cd $_srcname
 
@@ -62,8 +72,6 @@ prepare() {
 
 build() {
   cd ${_srcname}
-
-  unset LDFLAGS
   make ${MAKEFLAGS} vmlinuz.efi modules
 }
 
