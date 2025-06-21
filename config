@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 6.15.1 Kernel Configuration
+# Linux/arm64 6.15.3 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (GCC) 15.1.1 20250425"
 CONFIG_CC_IS_GCC=y
@@ -1991,6 +1991,7 @@ CONFIG_PROC_EVENTS=y
 # end of ARM System Control and Management Interface Protocol
 
 CONFIG_ARM_SCPI_PROTOCOL=y
+# CONFIG_ARM_SDE_INTERFACE is not set
 CONFIG_DMIID=y
 CONFIG_DMI_SYSFS=y
 # CONFIG_FW_CFG_SYSFS is not set

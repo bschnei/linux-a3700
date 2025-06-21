@@ -1,7 +1,7 @@
 # Maintainer: Ben Schneider <ben@bens.haus>
 
 pkgname=linux-a3700
-pkgver=6.15.1
+pkgver=6.15.3
 pkgrel=1
 pkgdesc='Kernel and modules for Marvell Armada A3700 SoC'
 arch=(aarch64)
@@ -12,7 +12,6 @@ makedepends=(
   tar
   xz
 )
-install=$pkgname.install
 options=(
   !debug
   !strip
@@ -34,9 +33,9 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 # https://www.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc
-sha256sums=('44f1bb84fe512e7bafe0e6dc85d38ec1c6c8fcbe97ccb51d8c19930b799f0d64'
+sha256sums=('12b50c89925438d9cd7385a0cafc9c433e6562ac5df00a21889fce9f548d65b0'
             'SKIP'
-            '36b09524a67afb65ed197015dc2e7341df44873eafef42f7f82fc1b4ccc34b85')
+            '800aae0a23284343d1dd5e88ac224352eaff9ca0fa0c93d23eb400de31c1d098')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -70,9 +69,6 @@ prepare() {
 
 build() {
   cd ${_srcname}
-
-  # we do not package dtbs or docs so do not build them
-  # only build the compressed kernel and modules
   make vmlinuz.efi modules
 }
 
