@@ -48,16 +48,6 @@ prepare() {
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
 
-  local src
-  for src in "${source[@]}"; do
-    src="${src%%::*}"
-    src="${src##*/}"
-    src="${src%.zst}"
-    [[ $src = *.patch ]] || continue
-    echo "Applying patch $src..."
-    patch -Np1 < "../$src"
-  done
-
   echo "Setting config..."
   cp ../config .config
   make olddefconfig
@@ -69,6 +59,8 @@ prepare() {
 
 build() {
   cd ${_srcname}
+  export KCFLAGS=' -mcpu=cortex-a53'
+  export KCPPFLAGS=' -mcpu=cortex-a53'
   make vmlinuz.efi modules
 }
 
