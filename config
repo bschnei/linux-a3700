@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 6.19.3 Kernel Configuration
+# Linux/arm64 6.19.8 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (GCC) 15.2.1 20260209"
 CONFIG_CC_IS_GCC=y
@@ -3291,6 +3291,7 @@ CONFIG_BCMA_POSSIBLE=y
 # CONFIG_MFD_CS42L43_I2C is not set
 # CONFIG_MFD_LOCHNAGAR is not set
 # CONFIG_MFD_MADERA is not set
+# CONFIG_MFD_TN48M_CPLD is not set
 # CONFIG_PMIC_DA903X is not set
 # CONFIG_MFD_DA9052_SPI is not set
 # CONFIG_MFD_DA9052_I2C is not set
@@ -4032,7 +4033,6 @@ CONFIG_RTC_INTF_DEV=y
 # CONFIG_RTC_DRV_HYM8563 is not set
 # CONFIG_RTC_DRV_MAX6900 is not set
 # CONFIG_RTC_DRV_MAX31335 is not set
-# CONFIG_RTC_DRV_NVIDIA_VRS10 is not set
 # CONFIG_RTC_DRV_NCT3018Y is not set
 # CONFIG_RTC_DRV_RS5C372 is not set
 # CONFIG_RTC_DRV_ISL1208 is not set
@@ -5502,7 +5502,6 @@ CONFIG_LOCK_DEBUGGING_SUPPORT=y
 
 # CONFIG_DEBUG_IRQFLAGS is not set
 CONFIG_STACKTRACE=y
-# CONFIG_WARN_ALL_UNSEEDED_RANDOM is not set
 # CONFIG_DEBUG_KOBJECT is not set
 
 #
